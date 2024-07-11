@@ -1,4 +1,4 @@
-namespace WebApi.Models.Request.Order;
+namespace Contracts.Order.Request.Order;
 
 public class UpdateOrderRequest
 {

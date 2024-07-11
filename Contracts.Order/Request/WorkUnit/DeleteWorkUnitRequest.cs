@@ -1,4 +1,4 @@
-namespace WebApi.Models.Request.WorkUnit;
+namespace Contracts.Order.Request.WorkUnit;
 
 public class DeleteWorkUnitRequest
 {

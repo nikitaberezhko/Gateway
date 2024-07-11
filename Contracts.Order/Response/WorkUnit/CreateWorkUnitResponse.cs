@@ -1,4 +1,4 @@
-namespace WebApi.Models.Response.WorkUnit;
+namespace Contracts.Order.Response.WorkUnit;
 
 public class CreateWorkUnitResponse
 {

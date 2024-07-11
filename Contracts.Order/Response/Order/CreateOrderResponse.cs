@@ -1,4 +1,4 @@
-namespace WebApi.Models.Response.Order;
+namespace Contracts.Order.Response.Order;
 
 public class CreateOrderResponse
 {
