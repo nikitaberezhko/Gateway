@@ -24,7 +24,7 @@ public class TrackingController(ITrackingApi trackingApi) : ControllerBase
     
     [Authorization(1,2)]
     [HttpGet("orders/{orderId:guid}")]
-    public async Task<ActionResult<CommonResponse<GetStatusByOrderIdResponse>>> GetStatusByOrderId(
+    public async Task<ActionResult<CommonResponse<GetStatusByOrderIdResponse>>> GetStatusById(
         [FromRoute] GetStatusByOrderIdRequest request)
     {
         var response = await trackingApi.GetStatusByOrderId(request);
