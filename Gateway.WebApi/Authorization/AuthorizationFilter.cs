@@ -14,17 +14,10 @@ public class AuthorizationFilter(IIdentityApi identityApi,
         var token = context.HttpContext.Request.Headers["Authorization"].ToString();
         if (!token.Any())
         {
-            context.HttpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
-            context.Result = new JsonResult(new CommonResponse<Empty>
-            {
-                Data = null,
-                Error = new Error
-                {
-                    Title = "Access token not found",
-                    Message = "Accesss token is required to access this endpoint",
-                    StatusCode = StatusCodes.Status401Unauthorized
-                }
-            });
+            CreateAuthorizationFailedResponse(context,
+                "Access token not found",
+                "Accesss token is required to access this endpoint",
+                StatusCodes.Status401Unauthorized);
             return;
         }
         
@@ -33,29 +26,37 @@ public class AuthorizationFilter(IIdentityApi identityApi,
         {
             Token = token
         }).Result;
-        
-        if (!response.IsSuccessStatusCode)
-        {
-            context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-            context.Result = new JsonResult(response.Content);
-            return;
-        }
 
+        if (response.IsSuccessStatusCode == false)
+            throw response.Error;
+        
         if (!roles.Contains(response.Content.Data!.RoleId))
+            CreateAuthorizationFailedResponse(context, 
+                "Access denied",
+                "You don't have access to this endpoint",
+                StatusCodes.Status403Forbidden);
+    }
+    
+    private void CreateAuthorizationFailedResponse(
+        AuthorizationFilterContext context,
+        string title, 
+        string message, 
+        int statusCode)
+    {
+        var response = new CommonResponse<Empty>
         {
-            context.HttpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
-            context.Result = new JsonResult(new CommonResponse<Empty>
+            Data = null,
+            Error = new Error
             {
-                Data = null,
-                Error = new Error
-                {
-                    Title = "Access denied",
-                    Message = "You don't have access to this endpoint",
-                    StatusCode = StatusCodes.Status403Forbidden
-                }
-            });
-        }
+                Title = title,
+                Message = message,
+                StatusCode = statusCode
+            }
+        };
+            
+        context.HttpContext.Response.StatusCode = statusCode;
+        context.Result = new JsonResult(response);
     }
 }
 
-record Empty{}
+record Empty;

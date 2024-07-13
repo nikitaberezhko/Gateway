@@ -29,10 +29,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection ConfigureRefitClients(
         this IServiceCollection services)
     {
-        services.AddRefitClient<IIdentityApi>(new RefitSettings()
-            {
-                ExceptionFactory = httpResponse => Task.FromResult<Exception>(null),
-            })
+        services.AddRefitClient<IIdentityApi>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:8080"));
         
         services.AddRefitClient<ITrackingApi>()
