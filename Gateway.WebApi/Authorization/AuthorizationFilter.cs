@@ -12,8 +12,23 @@ public class AuthorizationFilter(IIdentityApi identityApi,
     public void OnAuthorization(AuthorizationFilterContext context)
     {
         var token = context.HttpContext.Request.Headers["Authorization"].ToString();
-        token = token.Split()[1];
+        if (!token.Any())
+        {
+            context.HttpContext.Response.StatusCode = StatusCodes.Status403Forbidden;
+            context.Result = new JsonResult(new CommonResponse<Empty>
+            {
+                Data = null,
+                Error = new Error
+                {
+                    Title = "Access token not found",
+                    Message = "Accesss token is required to access this endpoint",
+                    StatusCode = StatusCodes.Status401Unauthorized
+                }
+            });
+            return;
+        }
         
+        token = token.Split()[1];
         var response = identityApi.AuthorizeUser(new AuthorizationUserRequest
         {
             Token = token
