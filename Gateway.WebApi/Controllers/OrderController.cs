@@ -1,10 +1,14 @@
 using Asp.Versioning;
+using AutoMapper;
 using Contracts.CommonModels;
 using Contracts.Order.Request.Order;
 using Contracts.Order.Response.Order;
 using Gateway.WebApi.Authorization;
+using Gateway.WebApi.CompositeModels;
 using Gateway.WebApi.RefitClients;
 using Microsoft.AspNetCore.Mvc;
+using Services.Models.Request;
+using Services.Services.Abstractions;
 
 namespace Gateway.WebApi.Controllers;
 
@@ -12,7 +16,10 @@ namespace Gateway.WebApi.Controllers;
 [ApiController]
 [Route("api/v{v:apiVersion}/orders")]
 [ApiVersion(1.0)]
-public class OrderController(IOrderApi orderApi) : ControllerBase
+public class OrderController(
+    IOrderApi orderApi,
+    IOrderService orderService,
+    IMapper mapper) : ControllerBase
 {
     [Authorization(1)]
     [HttpPost]
@@ -51,10 +58,16 @@ public class OrderController(IOrderApi orderApi) : ControllerBase
     
     [Authorization(1,2)]
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<CommonResponse<GetOrderByIdResponse>>> GetOrderById(
+    public async Task<ActionResult<CommonResponse<OrderWithStatusResponse>>> GetOrderById(
         [FromRoute] GetOrderByIdRequest request)
     {
-        var response = await orderApi.GetOrderById(request);
+        var result = await orderService.CompositeOrderWithStatusById(
+            mapper.Map<GetOrderByIdModel>(request));
+        var response = new CommonResponse<OrderWithStatusResponse>
+        {
+            Data = mapper.Map<OrderWithStatusResponse>(result)
+        };
+
         return response;
     }
     

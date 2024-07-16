@@ -1,5 +1,7 @@
 using Gateway.WebApi.Extensions;
 using Gateway.WebApi.Middlewares;
+using Services.Services.Abstractions;
+using Services.Services.Implementations;
 
 namespace Gateway.WebApi;
 
@@ -16,7 +18,9 @@ public class Program
         // Extensions
         services.ConfigureApiVersioning();
         services.ConfigureRefitClients();
+        services.ConfigureAutoMapper();
 
+        services.AddScoped<IOrderService, OrderService>();
         services.AddTransient<ExceptionHandlerMiddleware>();
         
         services.AddEndpointsApiExplorer();

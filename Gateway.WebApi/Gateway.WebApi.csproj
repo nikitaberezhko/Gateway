@@ -10,6 +10,7 @@
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="AutoMapper" Version="13.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
         <PackageReference Include="Refit" Version="7.1.2" />
         <PackageReference Include="Refit.HttpClientFactory" Version="7.1.2" />
@@ -21,6 +22,7 @@
       <ProjectReference Include="..\Contracts.Identity\Contracts.Identity.csproj" />
       <ProjectReference Include="..\Contracts.Order\Contracts.Order.csproj" />
       <ProjectReference Include="..\Contracts.Tracking\Contracts.Tracking.csproj" />
+      <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 
 </Project>

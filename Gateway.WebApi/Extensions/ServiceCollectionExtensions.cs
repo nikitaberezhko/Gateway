@@ -1,6 +1,8 @@
 using Asp.Versioning;
+using Gateway.WebApi.Mapping;
 using Gateway.WebApi.RefitClients;
 using Refit;
+using Services.Mapping;
 
 namespace Gateway.WebApi.Extensions;
 
@@ -41,6 +43,14 @@ public static class ServiceCollectionExtensions
         services.AddRefitClient<IWorkUnitApi>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:8084"));
 
+        return services;
+    }
+
+    public static IServiceCollection ConfigureAutoMapper(
+        this IServiceCollection services)
+    {
+        services.AddAutoMapper(typeof(ApiMappingProfile),
+            typeof(ServiceMappingProfile));
         return services;
     }
 }
