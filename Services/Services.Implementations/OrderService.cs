@@ -1,11 +1,10 @@
 using AutoMapper;
-using Contracts.CommonModels;
-using Contracts.Order.Request.Order;
-using Contracts.Tracking.Request;
 using Gateway.WebApi.RefitClients;
+using Order.Contracts.Request.Order;
 using Services.Models.Request;
 using Services.Models.Response;
 using Services.Services.Abstractions;
+using Tracking.Contracts.Request;
 
 namespace Services.Services.Implementations;
 

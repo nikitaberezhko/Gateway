@@ -1,7 +1,7 @@
 using Contracts.CommonModels;
-using Contracts.Tracking.Request;
-using Contracts.Tracking.Response;
 using Refit;
+using Tracking.Contracts.Request;
+using Tracking.Contracts.Response;
 
 namespace Gateway.WebApi.RefitClients;
 

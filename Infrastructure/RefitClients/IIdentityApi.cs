@@ -1,6 +1,6 @@
 using Contracts.CommonModels;
-using Contracts.Identity.Requests;
-using Contracts.Identity.Responses;
+using Identity.Contracts.Requests;
+using Identity.Contracts.Responses;
 using Refit;
 
 namespace Gateway.WebApi.RefitClients;

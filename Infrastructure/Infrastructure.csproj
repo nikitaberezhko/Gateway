@@ -7,14 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Identity.Contracts" Version="1.0.0" />
+      <PackageReference Include="Order.Contracts" Version="1.0.0" />
       <PackageReference Include="Refit" Version="7.1.2" />
+      <PackageReference Include="Tracking.Contracts" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Contracts.CommonModels\Contracts.CommonModels.csproj" />
-      <ProjectReference Include="..\Contracts.Identity\Contracts.Identity.csproj" />
-      <ProjectReference Include="..\Contracts.Order\Contracts.Order.csproj" />
-      <ProjectReference Include="..\Contracts.Tracking\Contracts.Tracking.csproj" />
     </ItemGroup>
 
 </Project>

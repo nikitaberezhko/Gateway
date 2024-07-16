@@ -1,8 +1,8 @@
 using Order.Contracts.Response;
 
-namespace Services.Models.Response;
+namespace WebApi.CompositeModels;
 
-public class OrderWithStatusModel
+public class OrderWithStatusResponse
 {
     public Guid ClientId { get; set; }
 

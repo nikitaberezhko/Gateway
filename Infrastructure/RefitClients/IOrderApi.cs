@@ -1,6 +1,6 @@
 using Contracts.CommonModels;
-using Contracts.Order.Request.Order;
-using Contracts.Order.Response.Order;
+using Order.Contracts.Request.Order;
+using Order.Contracts.Response.Order;
 using Refit;
 
 namespace Gateway.WebApi.RefitClients;

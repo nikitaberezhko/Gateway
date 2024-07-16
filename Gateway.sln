@@ -1,14 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.Identity", "Contracts.Identity\Contracts.Identity.csproj", "{5553595E-7F8A-46D9-8135-0354A928BCBC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.Tracking", "Contracts.Tracking\Contracts.Tracking.csproj", "{E0FE62A5-8E47-4594-841F-199BF11E522F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.Order", "Contracts.Order\Contracts.Order.csproj", "{7FE56453-08CD-4CFB-864B-5AE747C2A277}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.CommonModels", "Contracts.CommonModels\Contracts.CommonModels.csproj", "{E7DC124A-6061-4BA0-9088-4B0A83BF76A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway.WebApi", "Gateway.WebApi\Gateway.WebApi.csproj", "{D105D3DE-EEB0-45E5-BA5A-9E8C5311DFA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{D105D3DE-EEB0-45E5-BA5A-9E8C5311DFA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{4D2D72A0-4928-4D38-818F-015F1F33A258}"
 EndProject
@@ -20,18 +14,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5553595E-7F8A-46D9-8135-0354A928BCBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5553595E-7F8A-46D9-8135-0354A928BCBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5553595E-7F8A-46D9-8135-0354A928BCBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5553595E-7F8A-46D9-8135-0354A928BCBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0FE62A5-8E47-4594-841F-199BF11E522F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0FE62A5-8E47-4594-841F-199BF11E522F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0FE62A5-8E47-4594-841F-199BF11E522F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0FE62A5-8E47-4594-841F-199BF11E522F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FE56453-08CD-4CFB-864B-5AE747C2A277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FE56453-08CD-4CFB-864B-5AE747C2A277}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FE56453-08CD-4CFB-864B-5AE747C2A277}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FE56453-08CD-4CFB-864B-5AE747C2A277}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7DC124A-6061-4BA0-9088-4B0A83BF76A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7DC124A-6061-4BA0-9088-4B0A83BF76A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DC124A-6061-4BA0-9088-4B0A83BF76A8}.Release|Any CPU.ActiveCfg = Release|Any CPU

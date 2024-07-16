@@ -1,7 +1,5 @@
 using AutoMapper;
-using Contracts.Order.Response;
-using Contracts.Order.Response.Order;
-using Contracts.Tracking.Response;
+using Order.Contracts.Response.Order;
 using Services.Models.Response;
 
 namespace Services.Mapping;
